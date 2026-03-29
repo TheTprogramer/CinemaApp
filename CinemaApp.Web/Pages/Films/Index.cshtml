@@ -1,0 +1,65 @@
+@page
+@model CinemaApp.Web.Pages.Films.IndexModel
+@{ ViewData["Title"] = "Филми"; }
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-film me-2 text-success"></i>Филми</h2>
+    <div class="d-flex gap-2">
+        <a href="/Films/Shortest" class="btn btn-outline-secondary">
+            <i class="bi bi-sort-numeric-up me-1"></i>Най-кратки 3
+        </a>
+        <a href="/Films/Longest" class="btn btn-outline-secondary">
+            <i class="bi bi-sort-numeric-down me-1"></i>Най-дълъг
+        </a>
+        <a href="/Films/WithDetails" class="btn btn-outline-info">
+            <i class="bi bi-info-circle me-1"></i>С детайли
+        </a>
+        <a href="/Films/Create" class="btn btn-success">
+            <i class="bi bi-plus-circle me-1"></i>Добави
+        </a>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Заглавие</th>
+                    <th>Жанр</th>
+                    <th>Мин.</th>
+                    <th>Актьор</th>
+                    <th class="text-end">Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var f in Model.Films)
+                {
+                    <tr>
+                        <td class="text-muted">@f.FilmId</td>
+                        <td class="fw-semibold">@f.FilmName</td>
+                        <td><span class="badge bg-info text-dark">@f.FilmGenre</span></td>
+                        <td>@f.FilmTime</td>
+                        <td>@f.Actor?.FirstName @f.Actor?.LastName</td>
+                        <td class="text-end">
+                            <a href="/Films/Details/@f.FilmId" class="btn btn-sm btn-outline-info me-1">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a href="/Films/Edit/@f.FilmId" class="btn btn-sm btn-outline-warning me-1">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="/Films/Delete/@f.FilmId" class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Films.Any())
+                {
+                    <tr><td colspan="6" class="text-center text-muted py-4">Няма филми.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

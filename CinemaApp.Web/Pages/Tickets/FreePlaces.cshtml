@@ -1,0 +1,49 @@
+@page
+@model CinemaApp.Web.Pages.Tickets.FreePlacesModel
+@{ ViewData["Title"] = "Свободни места"; }
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-grid me-2 text-info"></i>Свободни места</h2>
+    <a href="/Tickets" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Обратно</a>
+</div>
+
+<div class="card shadow-sm border-0">
+  <div class="card-body p-0">
+    <table class="table table-hover mb-0">
+      <thead class="table-dark">
+        <tr><th>Зала ID</th><th>Тип зала</th><th>Ред ID</th><th>Тип ред</th><th>Място ID</th><th>Тип място</th></tr>
+      </thead>
+      <tbody>
+        @foreach (var p in Model.Places)
+        {
+          <tr>
+            <td>@p.RoomId</td>
+            <td><span class="badge bg-primary">@p.Room?.RoomType</span></td>
+            <td>@p.RowsId</td>
+            <td>
+              @if (p.Row?.RowsType == "VIP")
+              {
+                <span class="badge bg-warning text-dark">VIP</span>
+              }
+              else
+              {
+                <span class="badge bg-secondary">@p.Row?.RowsType</span>
+              }
+            </td>
+            <td>@p.SeatId</td>
+            <td><span class="badge bg-light text-dark border">@p.PlaceType</span></td>
+          </tr>
+        }
+        @if (!Model.Places.Any())
+        {
+          <tr><td colspan="6" class="text-center text-muted py-4">Няма свободни места.</td></tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<p class="text-muted mt-3 small">
+    <i class="bi bi-info-circle me-1"></i>
+    Показани са всички места без закупен билет от клиент.
+</p>

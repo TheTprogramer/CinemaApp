@@ -1,0 +1,20 @@
+body {
+    padding-bottom: 60px;
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.card {
+    border-radius: 0.75rem;
+}
+
+.navbar-brand {
+    font-size: 1.3rem;
+    letter-spacing: 0.03em;
+}
+
+.btn-sm {
+    border-radius: 0.4rem;
+}

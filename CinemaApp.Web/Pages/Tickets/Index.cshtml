@@ -1,0 +1,46 @@
+@page
+@model CinemaApp.Web.Pages.Tickets.IndexModel
+@{ ViewData["Title"] = "Билети"; }
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-ticket-perforated me-2 text-danger"></i>Билети</h2>
+    <div class="d-flex gap-2">
+        <a href="/Tickets/FreePlaces" class="btn btn-outline-info">
+            <i class="bi bi-grid me-1"></i>Свободни места
+        </a>
+        <a href="/Tickets/TotalSum" class="btn btn-outline-success">
+            <i class="bi bi-cash me-1"></i>Обща сума
+        </a>
+        <a href="/Tickets/Create" class="btn btn-danger">
+            <i class="bi bi-plus-circle me-1"></i>Добави
+        </a>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+  <div class="card-body p-0">
+    <table class="table table-hover mb-0">
+      <thead class="table-dark">
+        <tr><th>ID</th><th>Цена</th><th class="text-end">Действия</th></tr>
+      </thead>
+      <tbody>
+        @foreach (var t in Model.Tickets)
+        {
+          <tr>
+            <td class="text-muted">@t.TicketId</td>
+            <td><span class="badge bg-success fs-6">@t.TicketPrice.ToString("F2") лв.</span></td>
+            <td class="text-end">
+              <a href="/Tickets/Details/@t.TicketId" class="btn btn-sm btn-outline-info me-1"><i class="bi bi-eye"></i></a>
+              <a href="/Tickets/Edit/@t.TicketId"    class="btn btn-sm btn-outline-warning me-1"><i class="bi bi-pencil"></i></a>
+              <a href="/Tickets/Delete/@t.TicketId"  class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></a>
+            </td>
+          </tr>
+        }
+        @if (!Model.Tickets.Any())
+        {
+          <tr><td colspan="3" class="text-center text-muted py-4">Няма билети.</td></tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

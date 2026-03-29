@@ -1,0 +1,86 @@
+@page
+@model CinemaApp.Web.Pages.IndexModel
+@{ ViewData["Title"] = "Начало"; }
+
+<div class="text-center py-4">
+    <h1 class="display-4 fw-bold text-warning">
+        <i class="bi bi-camera-reels-fill me-3"></i>Cinema App
+    </h1>
+    <p class="lead text-secondary mt-2">Система за управление на кино</p>
+    <hr class="my-4" />
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <i class="bi bi-person-badge display-5 text-primary"></i>
+                <h5 class="card-title mt-3">Актьори</h5>
+                <p class="card-text text-muted">Управление на актьорите и техните филми.</p>
+                <a href="/Actors" class="btn btn-primary">
+                    <i class="bi bi-arrow-right me-1"></i>Към актьорите
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <i class="bi bi-film display-5 text-success"></i>
+                <h5 class="card-title mt-3">Филми</h5>
+                <p class="card-text text-muted">Управление на филмите, жанровете и времетраенето.</p>
+                <a href="/Films" class="btn btn-success">
+                    <i class="bi bi-arrow-right me-1"></i>Към филмите
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <i class="bi bi-projector display-5 text-info"></i>
+                <h5 class="card-title mt-3">Прожекции</h5>
+                <p class="card-text text-muted">Управление на прожекциите по дни и зали.</p>
+                <a href="/Projects" class="btn btn-info text-white">
+                    <i class="bi bi-arrow-right me-1"></i>Към прожекциите
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <i class="bi bi-people display-5 text-warning"></i>
+                <h5 class="card-title mt-3">Клиенти</h5>
+                <p class="card-text text-muted">Управление на клиентите и финансови справки.</p>
+                <a href="/Clients" class="btn btn-warning">
+                    <i class="bi bi-arrow-right me-1"></i>Към клиентите
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <i class="bi bi-ticket-perforated display-5 text-danger"></i>
+                <h5 class="card-title mt-3">Билети</h5>
+                <p class="card-text text-muted">Управление на билетите и свободните места.</p>
+                <a href="/Tickets" class="btn btn-danger">
+                    <i class="bi bi-arrow-right me-1"></i>Към билетите
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <i class="bi bi-bar-chart-line display-5 text-secondary"></i>
+                <h5 class="card-title mt-3">Справки</h5>
+                <p class="card-text text-muted">Приходи, продадени билети и статистики.</p>
+                <a href="/Clients/Queries" class="btn btn-secondary">
+                    <i class="bi bi-arrow-right me-1"></i>Към справките
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

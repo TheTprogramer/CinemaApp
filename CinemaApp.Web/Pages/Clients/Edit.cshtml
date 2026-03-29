@@ -1,0 +1,38 @@
+@page "{id:int}"
+@model CinemaApp.Web.Pages.Clients.EditModel
+@{ ViewData["Title"] = "Редактирай клиент"; }
+
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-warning text-dark">
+        <h5 class="mb-0"><i class="bi bi-pencil me-2"></i>Редактирай клиент</h5>
+      </div>
+      <div class="card-body">
+        <form method="post">
+          <input asp-for="Client.ClientId" type="hidden" />
+          <div class="mb-3">
+            <label asp-for="Client.DayOfWeek" class="form-label">Ден</label>
+            <select asp-for="Client.DayOfWeek" asp-items="Model.DaysList" class="form-select"></select>
+          </div>
+          <div class="mb-3">
+            <label asp-for="Client.TicketId" class="form-label">ID на билет</label>
+            <input asp-for="Client.TicketId" class="form-control" type="number" />
+          </div>
+          <div class="mb-3">
+            <label asp-for="Client.FoodId" class="form-label">ID на храна</label>
+            <input asp-for="Client.FoodId" class="form-control" type="number" />
+          </div>
+          <div class="mb-3">
+            <label asp-for="Client.DrinkId" class="form-label">ID на напитка</label>
+            <input asp-for="Client.DrinkId" class="form-control" type="number" />
+          </div>
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-warning"><i class="bi bi-save me-1"></i>Запази</button>
+            <a href="/Clients" class="btn btn-outline-secondary">Отказ</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

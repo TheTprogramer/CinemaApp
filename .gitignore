@@ -1,0 +1,42 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.swp
+*.sln.docstates
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+!packages/build/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Sensitive config
+appsettings.Development.json
+secrets.json
+
+## OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## IDE
+.idea/
+.vscode/
+*.rsuser

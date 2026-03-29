@@ -1,0 +1,44 @@
+@page
+@model CinemaApp.Web.Pages.Actors.WithFilmsModel
+@{ ViewData["Title"] = "Актьори с филми"; }
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-person-badge me-2 text-primary"></i>Актьори с техните филми</h2>
+    <a href="/Actors" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left me-1"></i>Обратно
+    </a>
+</div>
+
+@foreach (var a in Model.Actors)
+{
+    <div class="card shadow-sm border-0 mb-3">
+        <div class="card-header bg-dark text-white d-flex justify-content-between">
+            <span><i class="bi bi-person me-2"></i>@a.FirstName @a.LastName</span>
+            <span class="badge bg-secondary">@a.Age г.</span>
+        </div>
+        <div class="card-body p-0">
+            @if (!a.Films.Any())
+            {
+                <p class="text-muted p-3 mb-0">Няма филми.</p>
+            }
+            else
+            {
+                <table class="table table-sm mb-0">
+                    <thead class="table-light">
+                        <tr><th>Заглавие</th><th>Жанр</th><th>Мин.</th></tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var f in a.Films)
+                        {
+                            <tr>
+                                <td>@f.FilmName</td>
+                                <td><span class="badge bg-info text-dark">@f.FilmGenre</span></td>
+                                <td>@f.FilmTime</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+}

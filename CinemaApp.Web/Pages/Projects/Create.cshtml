@@ -1,0 +1,47 @@
+@page
+@model CinemaApp.Web.Pages.Projects.CreateModel
+@{ ViewData["Title"] = "Добави прожекция"; }
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-info text-white">
+        <h5 class="mb-0"><i class="bi bi-projector me-2"></i>Добави прожекция</h5>
+      </div>
+      <div class="card-body">
+        <form method="post">
+          <div class="mb-3">
+            <label asp-for="Project.DayOfWeek" class="form-label">Ден</label>
+            <select asp-for="Project.DayOfWeek" asp-items="Model.DaysList" class="form-select">
+              <option value="">-- Избери ден --</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label asp-for="Project.StartTime" class="form-label">Начален час</label>
+            <input asp-for="Project.StartTime" class="form-control" placeholder="10:30" />
+          </div>
+          <div class="mb-3">
+            <label asp-for="Project.EndTime" class="form-label">Краен час</label>
+            <input asp-for="Project.EndTime" class="form-control" placeholder="13:00" />
+          </div>
+          <div class="mb-3">
+            <label asp-for="Project.FilmId" class="form-label">Филм</label>
+            <select asp-for="Project.FilmId" asp-items="Model.FilmsList" class="form-select">
+              <option value="">-- Избери филм --</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label asp-for="Project.RoomId" class="form-label">Зала</label>
+            <select asp-for="Project.RoomId" asp-items="Model.RoomsList" class="form-select">
+              <option value="">-- Избери зала --</option>
+            </select>
+          </div>
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-info text-white"><i class="bi bi-save me-1"></i>Запази</button>
+            <a href="/Projects" class="btn btn-outline-secondary">Отказ</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

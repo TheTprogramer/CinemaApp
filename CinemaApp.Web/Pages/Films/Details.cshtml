@@ -1,0 +1,30 @@
+@page "{id:int}"
+@model CinemaApp.Web.Pages.Films.DetailsModel
+@{ ViewData["Title"] = "Детайли – Филм"; }
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-info text-white">
+        <h5 class="mb-0"><i class="bi bi-film me-2"></i>@Model.Film.FilmName</h5>
+      </div>
+      <div class="card-body">
+        <dl class="row">
+          <dt class="col-sm-4">ID:</dt><dd class="col-sm-8">@Model.Film.FilmId</dd>
+          <dt class="col-sm-4">Заглавие:</dt><dd class="col-sm-8">@Model.Film.FilmName</dd>
+          <dt class="col-sm-4">Жанр:</dt>
+          <dd class="col-sm-8"><span class="badge bg-info text-dark">@Model.Film.FilmGenre</span></dd>
+          <dt class="col-sm-4">Времетраене:</dt><dd class="col-sm-8">@Model.Film.FilmTime мин.</dd>
+          <dt class="col-sm-4">Актьор:</dt>
+          <dd class="col-sm-8">@Model.Film.Actor?.FirstName @Model.Film.Actor?.LastName</dd>
+        </dl>
+        <div class="d-flex gap-2 mt-3">
+          <a href="/Films/Edit/@Model.Film.FilmId" class="btn btn-warning">
+            <i class="bi bi-pencil me-1"></i>Редактирай
+          </a>
+          <a href="/Films" class="btn btn-outline-secondary">Обратно</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

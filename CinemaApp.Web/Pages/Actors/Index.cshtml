@@ -1,0 +1,57 @@
+@page
+@model CinemaApp.Web.Pages.Actors.IndexModel
+@{ ViewData["Title"] = "Актьори"; }
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-person-badge me-2 text-primary"></i>Актьори</h2>
+    <div class="d-flex gap-2">
+        <a href="/Actors/WithFilms" class="btn btn-outline-secondary">
+            <i class="bi bi-film me-1"></i>С филми
+        </a>
+        <a href="/Actors/Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-1"></i>Добави
+        </a>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Собствено</th>
+                    <th>Фамилно</th>
+                    <th>Възраст</th>
+                    <th class="text-end">Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var a in Model.Actors)
+                {
+                    <tr>
+                        <td class="text-muted">@a.ActorId</td>
+                        <td>@a.FirstName</td>
+                        <td>@a.LastName</td>
+                        <td><span class="badge bg-secondary">@a.Age г.</span></td>
+                        <td class="text-end">
+                            <a href="/Actors/Details/@a.ActorId" class="btn btn-sm btn-outline-info me-1" title="Детайли">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a href="/Actors/Edit/@a.ActorId" class="btn btn-sm btn-outline-warning me-1" title="Редактирай">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="/Actors/Delete/@a.ActorId" class="btn btn-sm btn-outline-danger" title="Изтрий">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Actors.Any())
+                {
+                    <tr><td colspan="5" class="text-center text-muted py-4">Няма актьори.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
